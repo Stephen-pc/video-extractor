@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Extractor</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <!-- 标题栏 -->
+  <header class="header">
+    <h1 class="header-title">
+      <span class="header-icon">🎬</span>
+      Video Extractor
+    </h1>
+    <div class="header-actions">
+      <button id="btnRefresh" class="btn btn-icon" title="重新扫描">🔄</button>
+      <button id="btnClear" class="btn btn-icon" title="清空列表">🗑️</button>
+    </div>
+  </header>
+
+  <!-- Tab 切换 -->
+  <nav class="tabs">
+    <button class="tab active" data-tab="dom">
+      📄 页面视频
+      <span id="domCount" class="tab-badge">0</span>
+    </button>
+    <button class="tab" data-tab="network">
+      🌐 网络捕获
+      <span id="networkCount" class="tab-badge">0</span>
+    </button>
+  </nav>
+
+  <!-- 内容区 -->
+  <main class="content">
+    <!-- 加载状态 -->
+    <div id="loadingState" class="state-box">
+      <div class="spinner"></div>
+      <p>正在扫描视频源...</p>
+    </div>
+
+    <!-- 空状态 -->
+    <div id="emptyState" class="state-box hidden">
+      <div class="empty-icon">📭</div>
+      <p>未检测到视频源</p>
+      <p class="empty-hint">打开一个包含视频的网页后点击刷新</p>
+    </div>
+
+    <!-- 视频列表 -->
+    <div id="videoList" class="video-list hidden"></div>
+
+    <!-- 错误状态 -->
+    <div id="errorState" class="state-box hidden">
+      <div class="error-icon">⚠️</div>
+      <p id="errorMessage">发生错误</p>
+    </div>
+  </main>
+
+  <!-- 预览弹窗 -->
+  <div id="previewModal" class="modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="previewTitle">视频预览</h3>
+        <button id="btnClosePreview" class="btn btn-icon">✕</button>
+      </div>
+      <div class="modal-body">
+        <video id="previewPlayer" controls autoplay>
+          您的浏览器不支持视频预览
+        </video>
+        <p id="previewUrl" class="preview-url"></p>
+      </div>
+      <div class="modal-footer">
+        <button id="btnCopyFromPreview" class="btn btn-primary">📋 复制地址</button>
+        <button id="btnDownloadFromPreview" class="btn btn-success">⬇ 下载视频</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast 提示 -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

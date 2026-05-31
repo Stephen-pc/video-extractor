@@ -1,0 +1,59 @@
+{
+  "manifest_version": 3,
+  "name": "Video Extractor - 视频源提取器",
+  "version": "1.0.0",
+  "description": "一键检测网页视频源，支持 MP4/M3U8/TS/WebM 等格式的预览与下载",
+  "author": "Video Extractor",
+  "homepage_url": "https://github.com/user/video-extractor",
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png",
+    "300": "icons/icon300.png"
+  },
+
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Video Extractor - 提取视频源",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+
+  "background": {
+    "service_worker": "background/background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+
+  "permissions": [
+    "webRequest",
+    "downloads",
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+
+  "host_permissions": [
+    "<all_urls>"
+  ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "video-extractor@example.com",
+      "strict_min_version": "115.0"
+    }
+  }
+}
