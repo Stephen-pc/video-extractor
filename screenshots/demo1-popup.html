@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=420, initial-scale=1.0">
+  <title>Screenshot Demo</title>
+  <link rel="stylesheet" href="../popup/popup.css">
+  <style>
+    body {
+      width: 420px;
+      min-height: auto;
+      max-height: none;
+      overflow: visible;
+      border-radius: 8px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1 class="header-title">
+      <span class="header-icon">🎬</span>
+      Video Extractor
+    </h1>
+    <div class="header-actions">
+      <button class="btn btn-icon" title="重新扫描">🔄</button>
+      <button class="btn btn-icon" title="清空列表">🗑️</button>
+    </div>
+  </header>
+
+  <!-- Tab -->
+  <nav class="tabs">
+    <button class="tab active" data-tab="dom">
+      📄 页面视频
+      <span class="tab-badge">5</span>
+    </button>
+    <button class="tab" data-tab="network">
+      🌐 网络捕获
+      <span class="tab-badge">3</span>
+    </button>
+  </nav>
+
+  <!-- Video List with Mock Data -->
+  <main class="content" style="display:block;">
+    <div class="video-list" style="display:block;">
+      <!-- Item 1 -->
+      <div class="video-item">
+        <div class="video-item-header">
+          <span class="video-item-icon">🎬</span>
+          <div class="video-item-info">
+            <div class="video-item-title">episode-01-1080p.mp4</div>
+            <div class="video-item-meta">
+              <span class="video-tag dom">DOM</span>
+              <span class="video-tag">MP4</span>
+              <span class="video-size">256.3 MB</span>
+            </div>
+          </div>
+          <div class="video-item-actions">
+            <button class="btn btn-sm">📋</button>
+            <button class="btn btn-sm">▶️</button>
+            <button class="btn btn-sm btn-success">⬇</button>
+          </div>
+        </div>
+      </div>
+      <!-- Item 2 -->
+      <div class="video-item">
+        <div class="video-item-header">
+          <span class="video-item-icon">📡</span>
+          <div class="video-item-info">
+            <div class="video-item-title">stream-720p.m3u8</div>
+            <div class="video-item-meta">
+              <span class="video-tag network">NET</span>
+              <span class="video-tag m3u8">M3U8</span>
+              <span class="video-size">—</span>
+            </div>
+          </div>
+          <div class="video-item-actions">
+            <button class="btn btn-sm">📋</button>
+            <button class="btn btn-sm">▶️</button>
+            <button class="btn btn-sm btn-success">⬇</button>
+          </div>
+        </div>
+      </div>
+      <!-- Item 3 -->
+      <div class="video-item">
+        <div class="video-item-header">
+          <span class="video-item-icon">🎬</span>
+          <div class="video-item-info">
+            <div class="video-item-title">movie-trailer-4k-hevc.webm</div>
+            <div class="video-item-meta">
+              <span class="video-tag dom">DOM</span>
+              <span class="video-tag">WebM</span>
+              <span class="video-size">1.2 GB</span>
+            </div>
+          </div>
+          <div class="video-item-actions">
+            <button class="btn btn-sm">📋</button>
+            <button class="btn btn-sm">▶️</button>
+            <button class="btn btn-sm btn-success">⬇</button>
+          </div>
+        </div>
+      </div>
+      <!-- Item 4 - expanded -->
+      <div class="video-item expanded">
+        <div class="video-item-header">
+          <span class="video-item-icon">🎥</span>
+          <div class="video-item-info">
+            <div class="video-item-title">tutorial-basics-2024.mov</div>
+            <div class="video-item-meta">
+              <span class="video-tag dom">DOM</span>
+              <span class="video-tag">MOV</span>
+              <span class="video-size">89.7 MB</span>
+            </div>
+          </div>
+          <div class="video-item-actions">
+            <button class="btn btn-sm">📋</button>
+            <button class="btn btn-sm">▶️</button>
+            <button class="btn btn-sm btn-success">⬇</button>
+          </div>
+        </div>
+        <div class="video-item-detail">
+          <div class="video-url-full">https://cdn.example.com/videos/2024/tutorial-basics-2024.mov</div>
+          <video controls preload="none" style="width:100%;max-height:180px;border-radius:4px;background:#000;">
+            <source src="">
+          </video>
+        </div>
+      </div>
+      <!-- Item 5 -->
+      <div class="video-item">
+        <div class="video-item-header">
+          <span class="video-item-icon">📀</span>
+          <div class="video-item-info">
+            <div class="video-item-title">concert-live-4k.mkv</div>
+            <div class="video-item-meta">
+              <span class="video-tag network">NET</span>
+              <span class="video-tag">MKV</span>
+              <span class="video-size">4.7 GB</span>
+            </div>
+          </div>
+          <div class="video-item-actions">
+            <button class="btn btn-sm">📋</button>
+            <button class="btn btn-sm">▶️</button>
+            <button class="btn btn-sm btn-success">⬇</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Toast -->
+  <div id="toast" class="toast toast-success" style="display:flex; opacity:1; transform:none;">✅ 已复制到剪贴板</div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><title>截图3 - 网络捕获</title>
+<style>
+:root{--bg-primary:#fff;--bg-secondary:#f5f5f5;--bg-hover:#e8e8e8;--bg-active:#dde4ff;--text-primary:#1a1a1a;--text-secondary:#666;--text-muted:#999;--border:#e0e0e0;--border-light:#eee;--accent:#2563eb;--accent-hover:#1d4ed8;--success:#16a34a;--success-hover:#15803d;--danger:#dc2626;--shadow-lg:0 4px 24px rgba(0,0,0,0.15);--radius:8px;--radius-sm:4px;--font-mono:'Consolas','Monaco','Courier New',monospace}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{width:420px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:13px;line-height:1.5;color:var(--text-primary);background:#f0f0f0;display:flex;justify-content:center;padding:20px}
+.wrapper{width:420px;background:var(--bg-primary);border-radius:var(--radius);box-shadow:var(--shadow-lg);overflow:hidden}
+.header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border)}
+.header-title{font-size:15px;font-weight:600;display:flex;align-items:center;gap:6px}
+.header-icon{font-size:18px}
+.header-actions{display:flex;gap:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:6px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg-primary);color:var(--text-primary);font-size:12px;font-family:inherit;cursor:pointer;white-space:nowrap;user-select:none}
+.btn:hover{background:var(--bg-hover)}
+.btn-icon{padding:6px;border:none;background:transparent;font-size:15px;line-height:1}
+.btn-sm{padding:3px 8px;font-size:11px}
+.btn-success{background:var(--success);color:#fff;border-color:var(--success)}
+.tabs{display:flex;border-bottom:1px solid var(--border);background:var(--bg-secondary)}
+.tab{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 12px;border:none;border-bottom:2px solid transparent;background:transparent;color:var(--text-secondary);font-size:12px;font-family:inherit;cursor:pointer}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent);background:var(--bg-primary);font-weight:600}
+.tab-badge{display:inline-flex;align-items:center;justify-content:center;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--border);color:var(--text-secondary);font-size:10px;font-weight:600}
+.tab.active .tab-badge{background:var(--accent);color:#fff}
+.video-list{padding:8px 0;max-height:500px;overflow-y:auto}
+.video-item{border-bottom:1px solid var(--border-light);transition:background .1s}
+.video-item:hover{background:var(--bg-secondary)}
+.video-item-header{display:flex;align-items:flex-start;padding:10px 16px;cursor:pointer;gap:10px}
+.video-item-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.video-item-info{flex:1;min-width:0}
+.video-item-title{font-size:12px;font-weight:500;color:var(--text-primary);word-break:break-all;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.video-item-meta{display:flex;gap:8px;margin-top:4px;font-size:11px;color:var(--text-muted);flex-wrap:wrap}
+.video-tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;font-weight:600;text-transform:uppercase;background:#e8f0fe;color:#1967d2}
+.video-tag.network{background:#fce8e6;color:#c5221f}
+.video-tag.m3u8{background:#fef7e0;color:#b06000}
+.video-size{font-family:var(--font-mono)}
+.video-item-actions{display:flex;gap:2px;flex-shrink:0}
+</style></head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <h1 class="header-title"><span class="header-icon">🎬</span>Video Extractor</h1>
+    <div class="header-actions">
+      <button class="btn btn-icon">🔄</button>
+      <button class="btn btn-icon">🗑️</button>
+    </div>
+  </div>
+  <nav class="tabs">
+    <button class="tab">📄 页面视频<span class="tab-badge">5</span></button>
+    <button class="tab active">🌐 网络捕获<span class="tab-badge" style="background:var(--accent);color:#fff">8</span></button>
+  </nav>
+  <div class="video-list">
+    <div class="video-item">
+      <div class="video-item-header">
+        <span class="video-item-icon">📡</span>
+        <div class="video-item-info">
+          <div class="video-item-title">live-hls-stream-1080p.m3u8</div>
+          <div class="video-item-meta"><span class="video-tag network">NET</span><span class="video-tag m3u8">M3U8</span><span class="video-size">—</span></div>
+        </div>
+        <div class="video-item-actions"><button class="btn btn-sm">📋</button><button class="btn btn-sm">▶️</button><button class="btn btn-sm btn-success">⬇</button></div>
+      </div>
+    </div>
+    <div class="video-item">
+      <div class="video-item-header">
+        <span class="video-item-icon">🎬</span>
+        <div class="video-item-info">
+          <div class="video-item-title">chunk_001.ts</div>
+          <div class="video-item-meta"><span class="video-tag network">NET</span><span class="video-tag">TS</span><span class="video-size">2.1 MB</span></div>
+        </div>
+        <div class="video-item-actions"><button class="btn btn-sm">📋</button><button class="btn btn-sm">▶️</button><button class="btn btn-sm btn-success">⬇</button></div>
+      </div>
+    </div>
+    <div class="video-item">
+      <div class="video-item-header">
+        <span class="video-item-icon">🌐</span>
+        <div class="video-item-info">
+          <div class="video-item-title">dash-video-4k-30fps.webm</div>
+          <div class="video-item-meta"><span class="video-tag network">NET</span><span class="video-tag">WebM</span><span class="video-size">892.4 MB</span></div>
+        </div>
+        <div class="video-item-actions"><button class="btn btn-sm">📋</button><button class="btn btn-sm">▶️</button><button class="btn btn-sm btn-success">⬇</button></div>
+      </div>
+    </div>
+    <div class="video-item">
+      <div class="video-item-header">
+        <span class="video-item-icon">🎬</span>
+        <div class="video-item-info">
+          <div class="video-item-title">video-segment-045.flv</div>
+          <div class="video-item-meta"><span class="video-tag network">NET</span><span class="video-tag">FLV</span><span class="video-size">15.8 MB</span></div>
+        </div>
+        <div class="video-item-actions"><button class="btn btn-sm">📋</button><button class="btn btn-sm">▶️</button><button class="btn btn-sm btn-success">⬇</button></div>
+      </div>
+    </div>
+    <div class="video-item">
+      <div class="video-item-header">
+        <span class="video-item-icon">📡</span>
+        <div class="video-item-info">
+          <div class="video-item-title">stream-backup-720p.m3u8</div>
+          <div class="video-item-meta"><span class="video-tag network">NET</span><span class="video-tag m3u8">M3U8</span><span class="video-size">—</span></div>
+        </div>
+        <div class="video-item-actions"><button class="btn btn-sm">📋</button><button class="btn btn-sm">▶️</button><button class="btn btn-sm btn-success">⬇</button></div>
+      </div>
+    </div>
+    <div class="video-item">
+      <div class="video-item-header">
+        <span class="video-item-icon">🍎</span>
+        <div class="video-item-info">
+          <div class="video-item-title">quicktime-sample-h264.mov</div>
+          <div class="video-item-meta"><span class="video-tag network">NET</span><span class="video-tag">MOV</span><span class="video-size">45.2 MB</span></div>
+        </div>
+        <div class="video-item-actions"><button class="btn btn-sm">📋</button><button class="btn btn-sm">▶️</button><button class="btn btn-sm btn-success">⬇</button></div>
+      </div>
+    </div>
+    <div class="video-item">
+      <div class="video-item-header">
+        <span class="video-item-icon">🎥</span>
+        <div class="video-item-info">
+          <div class="video-item-title">movie-clip-1080p.avi</div>
+          <div class="video-item-meta"><span class="video-tag network">NET</span><span class="video-tag">AVI</span><span class="video-size">1.8 GB</span></div>
+        </div>
+        <div class="video-item-actions"><button class="btn btn-sm">📋</button><button class="btn btn-sm">▶️</button><button class="btn btn-sm btn-success">⬇</button></div>
+      </div>
+    </div>
+    <div class="video-item">
+      <div class="video-item-header">
+        <span class="video-item-icon">🎬</span>
+        <div class="video-item-info">
+          <div class="video-item-title">cdn-origin-stream-4k.mp4</div>
+          <div class="video-item-meta"><span class="video-tag network">NET</span><span class="video-tag">MP4</span><span class="video-size">3.2 GB</span></div>
+        </div>
+        <div class="video-item-actions"><button class="btn btn-sm">📋</button><button class="btn btn-sm">▶️</button><button class="btn btn-sm btn-success">⬇</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
